@@ -1,0 +1,12 @@
+div.EditItemWrapper {
+  /* border: 2px dotted black; */
+  padding: 0 32px;
+  margin: 20px;
+}
+
+div.EditItemWrapper form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}

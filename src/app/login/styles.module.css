@@ -1,0 +1,16 @@
+main.PageWrapper {
+  height: 100svh;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+  padding: 40px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main.PageWrapper input {
+  width: 200px;
+  margin: 0 16px 0 0;
+}

@@ -1,0 +1,98 @@
+li.ItemWrapper {
+  display: flex;
+  flex-direction: column;
+
+  list-style-type: none;
+
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  padding: 16px 20px;
+
+  color: #333;
+
+  position: relative;
+}
+
+li.ItemWrapper_Done {
+  background-color: #cee6ce88;
+  border: 1px solid #60b860;
+}
+
+li.ItemWrapper_InProgress {
+  background-color: #f3f3f388;
+  border: 1px solid #f6f6f6;
+}
+
+/* li.ItemWrapper_NotDone {} */
+
+li.ItemWrapper h2 {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+div.InfoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+a.ItemLink {
+  font-size: 14px;
+  color: #1d691d;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: 0.2s;
+}
+
+a.ItemLink:hover {
+  opacity: 1;
+}
+
+div.ContentRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Upvote */
+
+span.Upvote {
+  display: flex;
+  align-items: center;
+
+  color: #f66;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+span.Upvote:hover {
+  transform: scale(1.4);
+}
+
+span.Upvote_disabled {
+  color: #bbb;
+  transition: 0.2s;
+}
+
+span.Upvote_disabled:hover {
+  cursor: not-allowed;
+}
+
+div.ContentRow h3 {
+  font-size: 16px;
+}
+
+span.InProgressIcon {
+  display: flex;
+  align-items: center;
+
+  color: #bdbdbd;
+}
+
+span.DoneIcon {
+  display: flex;
+  align-items: center;
+
+  color: #60b860;
+}

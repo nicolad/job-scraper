@@ -1,0 +1,17 @@
+ul.ItemListWrapper {
+  display: grid;
+  gap: 8px;
+
+  margin: 20px;
+
+  overflow-y: scroll;
+}
+
+ul.ItemListWrapper::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+ul.ItemListWrapper a {
+  text-decoration: none;
+}
