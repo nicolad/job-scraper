@@ -12,7 +12,7 @@ import {
 import { upvoteItem } from "@/utils/server-actions";
 import { FaCircleCheck, FaClock, FaHeart } from "react-icons/fa6";
 import DeleteButton from "@/components/DeleteButton";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useAppContext } from "@/utils/appContext";
 
@@ -48,9 +48,8 @@ export default function Item({ name, status, votes, url }: Props) {
     }
   };
 
-  if (filter.includes(status)) {
   return (
-    <ItemWrapper status={status.replace(/\s/g, '') as any}>
+    <ItemWrapper status={status?.replace(/\s/g, "") as any}>
       <InfoContainer>
         <ContentRow>
           <h2>{name}</h2>
@@ -81,5 +80,5 @@ export default function Item({ name, status, votes, url }: Props) {
         </InfoContainer>
       )}
     </ItemWrapper>
-  );}
+  );
 }

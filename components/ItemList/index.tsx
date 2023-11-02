@@ -6,28 +6,21 @@ import { ItemData } from "@/utils/types";
 export default async function ItemList() {
   // Bring data to frontend
   const names = await kv.keys("*");
-  const data = await Promise.all(
-    names.map(async (name) => {
-      const itemData = await kv.hgetall(name);
-      return itemData! as ItemData;
-    })
-  );
-
-  data.sort((a, b) => parseInt(b.votes) - parseInt(a.votes));
-
+  const data = await kv.lrange("jobs", 0, 1000);
+  const jobs = data?.filter((d) => !d?.hide);
   return (
     <ItemListWrapper>
-      {data.map((itemData, index) => {
+      {jobs.map((itemData, index) => {
         return (
           <Item
             key={index}
-            name={itemData.name}
+            name={itemData.url}
             status={itemData.status}
             votes={itemData.votes}
             url={itemData.url}
           />
-        );})
-      }
+        );
+      })}
     </ItemListWrapper>
   );
 }

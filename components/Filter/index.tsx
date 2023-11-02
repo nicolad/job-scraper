@@ -6,7 +6,7 @@ import { FilterWrapper, FilterItem } from "./styles";
 export default function Filter() {
   const { filter, setFilter } = useAppContext();
 
-  const handleFilterToggle = (filterItem:string) => {
+  const handleFilterToggle = (filterItem: string) => {
     const isItemInFilter = filter.includes(filterItem);
 
     const updatedFilter = isItemInFilter
@@ -16,8 +16,25 @@ export default function Filter() {
     setFilter(updatedFilter);
   };
 
+  // import { Button, Space } from "antd";
+  // import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+  // export const Fetchers = () => {
+  //   const supabase = createClientComponentClient();
+
+  const handleScrape = async () => {
+    try {
+      const response = await fetch("/api/scrape");
+      const data = await response.json();
+      console.log("Search API Response:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <FilterWrapper>
+      <button onClick={handleScrape}>Scrape</button>
       <FilterItem
         onClick={() => handleFilterToggle("Not Done")}
         active={filter.includes("Not Done")}

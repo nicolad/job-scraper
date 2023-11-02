@@ -1,0 +1,238 @@
+[
+  {
+    "Name": "Computer Futures",
+    "URL": "https://www.computerfutures.com/"
+  },
+  {
+    "Name": "Randstad Technologies",
+    "URL": "https://www.randstad.co.uk/",
+    "jobListingURL": "https://www.randstad.co.uk/jobs/contract/remote/"
+  },
+  {
+    "Name": "Harvey Nash",
+    "URL": "https://www.harveynash.com/uk/",
+    "jobListingURL": "https://www.harveynash.co.uk/jobs?options=4"
+  },
+  {
+    "Name": "Spinks",
+    "URL": "https://www.wearespinks.com/",
+    "jobListingURL": "https://www.wearespinks.com/jobs/contract"
+  },
+  {
+    "Name": "Reed Technology",
+    "URL": "https://www.reedglobal.com/"
+  },
+  {
+    "Name": "Modis",
+    "URL": "https://www.modis.com/en-gb/",
+    "jobListingURL": "https://www.akkodis.com/en/careers/job-results-uk"
+  },
+  {
+    "Name": "Xpertise Recruitment",
+    "URL": "https://www.xpertise-recruitment.com/",
+    "jobListingURL": "https://www.xpertise-recruitment.com/jobs"
+  },
+  {
+    "Name": "La Fosse Associates",
+    "Focus": "Technology, Digital",
+    "URL": "https://www.lafosse.com/"
+  },
+  {
+    "Name": "Trust In Soda",
+    "Focus": "Digital and Tech",
+    "URL": "https://www.trustinsoda.com/"
+  },
+  {
+    "Name": "Salt",
+    "Focus": "Creative, Tech",
+    "URL": "https://www.welovesalt.com/uk/"
+  },
+  {
+    "Name": "Ascent People",
+    "Focus": "IT and Software",
+    "URL": "https://www.ascentpeople.com/"
+  },
+  {
+    "Name": "Explore Group",
+    "Focus": "IT, Digital",
+    "URL": "https://www.explore-group.com/"
+  },
+  {
+    "Name": "Burns Sheehan",
+    "Focus": "Technology",
+    "URL": "https://www.burnssheehan.co.uk/"
+  },
+  {
+    "Name": "Arrows Group",
+    "Focus": "Tech and Digital",
+    "URL": "https://www.arrowsgroup.com/"
+  },
+  {
+    "Name": "Empiric",
+    "Focus": "Technology",
+    "URL": "https://www.empiric.com/"
+  },
+  {
+    "Name": "Nigel Frank International",
+    "Focus": "Microsoft Technologies",
+    "URL": "https://www.nigelfrank.com/"
+  },
+  {
+    "Name": "Henderson Scott",
+    "Focus": "Technology",
+    "URL": "https://www.hendersonscott.com/"
+  },
+  {
+    "Name": "Oliver Bernard",
+    "Focus": "Tech and Digital",
+    "URL": "https://www.oliverbernard.co.uk/"
+  },
+  {
+    "Name": "Avanti Recruitment",
+    "Focus": "IT and Tech",
+    "URL": "https://www.avantirecruitment.com/"
+  },
+  {
+    "Name": "GCS Recruitment",
+    "Focus": "IT, Engineering",
+    "URL": "https://www.gcsrecruitment.com/"
+  },
+  {
+    "Name": "Client Server",
+    "Focus": "Tech",
+    "URL": "https://www.client-server.com/"
+  },
+  {
+    "Name": "Intelligent People",
+    "Focus": "Digital and Tech",
+    "URL": "https://www.intelligentpeople.co.uk/"
+  },
+  {
+    "Name": "Revoco",
+    "Focus": "Tech",
+    "URL": "https://www.revoco-talent.co.uk/"
+  },
+  {
+    "Name": "William Alexander",
+    "Focus": "IT and Business Transformation",
+    "URL": "https://www.william-alexander.com/"
+  },
+  {
+    "Name": "iO Associates",
+    "Focus": "Tech, Engineering",
+    "URL": "https://www.ioassociates.co.uk/"
+  },
+  {
+    "Name": "Signify Technology",
+    "Focus": "Scala, Java",
+    "URL": "https://www.signifytechnology.com/"
+  },
+  {
+    "Name": "Prism Digital",
+    "Focus": "DevOps, Cloud",
+    "URL": "https://www.prism-digital.com/"
+  },
+  {
+    "Name": "Energize Recruitment",
+    "Focus": "IT, Digital",
+    "URL": "https://www.energizerecruitment.com/"
+  },
+  {
+    "Name": "Etonwood",
+    "Focus": "Infrastructure, Cloud",
+    "URL": "https://etonwood.com/"
+  },
+  {
+    "Name": "Durlston Partners",
+    "Focus": "Technology",
+    "URL": "https://durlstonpartners.com/"
+  },
+  {
+    "Name": "Annapurna Recruitment",
+    "Focus": "IT, Business Change",
+    "URL": "https://www.annapurnarecruitment.com/"
+  },
+  {
+    "Name": "Gibbs Hybrid",
+    "Focus": "IT, Business Services",
+    "URL": "https://www.gibbshybrid.com/"
+  },
+  {
+    "Name": "Sentinel",
+    "Focus": "IT, Business Transformation",
+    "URL": "https://www.sentinelit.com/"
+  },
+  {
+    "Name": "Tiro Partners",
+    "Focus": "Tech, Engineering",
+    "URL": "https://www.tiropartners.com/"
+  },
+  {
+    "Name": "Mason Frank",
+    "Focus": "Salesforce Recruitment",
+    "URL": "https://www.masonfrank.com/"
+  },
+  {
+    "Name": "Vertex Solutions",
+    "Focus": "Tech, Financial Services",
+    "URL": "https://www.vertex-solutions.co.uk/"
+  },
+  {
+    "Name": "Understanding Recruitment",
+    "Focus": "Tech",
+    "URL": "https://www.understandingrecruitment.co.uk/"
+  },
+  {
+    "Name": "Zebra People",
+    "Focus": "Digital",
+    "URL": "https://zebrapeople.com/"
+  },
+  {
+    "Name": "SR2",
+    "Focus": "Tech",
+    "URL": "https://www.sr2rec.co.uk/"
+  },
+  {
+    "Name": "DCV Technologies",
+    "Focus": "Tech, Engineering",
+    "URL": "https://www.dcvtechnologies.co.uk/"
+  },
+  {
+    "Name": "Amicus Recruitment",
+    "Focus": "Software Development",
+    "URL": "https://amicusjobs.co.uk/"
+  },
+  {
+    "Name": "Stott and May",
+    "Focus": "Tech",
+    "URL": "https://www.stottandmay.com/"
+  },
+  {
+    "Name": "Oho Group",
+    "Focus": "Tech, Engineering",
+    "URL": "https://www.oho.co.uk/"
+  },
+  {
+    "Name": "Adria Solutions",
+    "Focus": "Tech",
+    "URL": "https://www.adriasolutions.co.uk/"
+  },
+  {
+    "Name": "Datascope Recruitment",
+    "Focus": "Gaming, Tech",
+    "URL": "https://datascope.co.uk/"
+  },
+  {
+    "Name": "Edison Hill",
+    "Focus": "Tech",
+    "URL": "https://www.edison-hill.co.uk/"
+  },
+  {
+    "Name": "Codex Recruitment",
+    "Focus": "Data, Tech",
+    "URL": "https://www.codexrecruitment.com/"
+  },
+  {
+    "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
+  }
+]
