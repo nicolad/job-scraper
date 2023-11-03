@@ -1,8 +1,8 @@
-import { SupabaseClient } from "@supabase/supabase-js";
+// import { SupabaseClient } from "@supabase/supabase-js";
 import _ from "lodash";
 
 export const getUniqueRecords = async (
-  supabase: SupabaseClient,
+  supabase?: any,
   data: any[],
   tableName: string,
   uniqueProperty: string

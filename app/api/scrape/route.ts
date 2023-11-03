@@ -1,12 +1,14 @@
-import { kv } from "@vercel/kv";
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
+import { JSONPreset } from "lowdb/node";
 
 import { checkLatestJobs, insertUniqueRecords } from "@/utils";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const db = await JSONPreset<any>("db.json", []);
+
   const file = await fs.readFile(
     process.cwd() + "/app/data/companies.json",
     "utf8"
@@ -22,10 +24,13 @@ export async function GET() {
     const latestJobs = await checkLatestJobs(companyURL);
 
     latestJobs?.forEach(async (url: any) => {
-      await kv.hset(url ?? "", {
+      db.data.push({
         url,
       });
     });
+
+    db.write();
+
     // await insertUniqueRecords(docs, "jobs", "url");
   });
 

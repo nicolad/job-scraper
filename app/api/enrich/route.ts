@@ -1,34 +1,30 @@
 import { NextResponse } from "next/server";
-import { kv } from "@vercel/kv";
+import { JSONPreset } from "lowdb/node";
 
 import { enrich } from "@/utils";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const names = await kv.keys("*");
-  const jobs = await Promise.all(
-    names.map(async (name) => {
-      const itemData = await kv.hgetall(name);
-      return itemData!;
-    })
-  );
+  const db = await JSONPreset<any>("db.json", []);
+  let jobs = db?.data;
 
-  jobs?.forEach(async (item: any) => {
+  console.log("start");
+  for (let index = 0; index < jobs.length; index++) {
+    const item = jobs[index];
     const url = item?.url;
-    const enrichedData = await enrich(url);
-
     try {
-      kv.hset(url, {
-        url,
-        ...enrichedData,
-      });
+      const enrichedData = await enrich(url);
+      jobs[index] = { url: item?.url, ...enrichedData };
     } catch (error) {
-      console.error(
-        `An error occurred while inserting records into jobs: ${error}`
-      );
+      console.log("error", error);
     }
-  });
+  }
+  console.log("end");
+
+  console.log("jobs", jobs);
+
+  db.write();
 
   return NextResponse.json(null);
 }

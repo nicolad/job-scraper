@@ -16,6 +16,7 @@ specifiers:
   eslint-config-next: 13.4.6
   langchain: ^0.0.178
   lodash: ^4.17.21
+  lowdb: ^6.1.1
   next: 13.4.6
   react: 18.2.0
   react-dom: 18.2.0
@@ -39,6 +40,7 @@ dependencies:
   eslint-config-next: 13.4.6_7yfldhli4vs6yywnkyiujhawka
   langchain: 0.0.178_ldsbzx5nwjmh5aj62ub4kggea4
   lodash: 4.17.21
+  lowdb: 6.1.1
   next: 13.4.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3295,6 +3297,13 @@ packages:
       js-tokens: 4.0.0
     dev: false
 
+  /lowdb/6.1.1:
+    resolution: {integrity: sha512-HO13FCxI8SCwfj2JRXOKgXggxnmfSc+l0aJsZ5I34X3pwzG/DPBSKyKu3Zkgg/pNmx854SVgE2la0oUeh6wzNw==}
+    engines: {node: '>=16'}
+    dependencies:
+      steno: 3.1.1
+    dev: false
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -4617,6 +4626,11 @@ packages:
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /steno/3.1.1:
+    resolution: {integrity: sha512-B7c6EVH7oEiaMRW36SjUnktkDwp/qd4pQiduylyiqvcZEZDeX0IIFZRBZdwO/RaVo60M0wkDwC0e8yeKaR4VGg==}
+    engines: {node: '>=16'}
     dev: false
 
   /streamsearch/1.1.0:

@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, Space } from "antd";
 
 export const Actions = ({
@@ -12,10 +10,8 @@ export const Actions = ({
   id: number;
 }) => {
   const deleteJob = async (id: number) => {
-    // const { error } = await supabase.from(tableName).delete().eq("id", id);
-    // console.log(error);
-
-    getJobs?.();
+    // await kv.del(id);
+    // getJobs?.();
   };
 
   const hideJob = async (id: number) => {
