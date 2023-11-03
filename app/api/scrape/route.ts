@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { kv } from "@vercel/kv";
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 
@@ -20,11 +20,13 @@ export async function GET() {
     const url = new URL(companyURL);
     const domainParts = url.hostname.split(".");
     const latestJobs = await checkLatestJobs(companyURL);
-    const docs = latestJobs?.map((job: any) => ({
-      url: job,
-      title: "",
-    }));
-    await insertUniqueRecords(docs, "jobs", "url");
+
+    latestJobs?.forEach(async (url: any) => {
+      await kv.hset(url ?? "", {
+        url,
+      });
+    });
+    // await insertUniqueRecords(docs, "jobs", "url");
   });
 
   return NextResponse.json(null);
