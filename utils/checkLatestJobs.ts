@@ -8,7 +8,6 @@ export const getAllLinks = (html: string, url?: string): string[] => {
 
   $("a").each((_i, elem) => {
     const href = $(elem).attr("href");
-    // if (href ) {
     if (href) {
       if (url?.includes("gravitasgroup") && href.startsWith("/job/")) {
         const mainLink = href.split("/")[1] + "/" + href.split("/")[2];

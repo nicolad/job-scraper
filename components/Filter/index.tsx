@@ -1,27 +1,9 @@
 "use client";
 
-import { useAppContext } from "@/utils/appContext";
+import { Tag, Modal, Table, Button } from "antd";
 import { FilterWrapper, FilterItem } from "./styles";
 
 export default function Filter() {
-  const { filter, setFilter } = useAppContext();
-
-  const handleFilterToggle = (filterItem: string) => {
-    const isItemInFilter = filter.includes(filterItem);
-
-    const updatedFilter = isItemInFilter
-      ? filter.filter((item) => item !== filterItem)
-      : [...filter, filterItem];
-
-    setFilter(updatedFilter);
-  };
-
-  // import { Button, Space } from "antd";
-  // import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-
-  // export const Fetchers = () => {
-  //   const supabase = createClientComponentClient();
-
   const handleScrape = async () => {
     try {
       const response = await fetch("/api/scrape");
@@ -32,27 +14,24 @@ export default function Filter() {
     }
   };
 
+  const handleEnrich = async () => {
+    try {
+      const response = await fetch("/api/enrich");
+      const data = await response.json();
+      console.log("Search API Response:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <FilterWrapper>
-      <button onClick={handleScrape}>Scrape</button>
-      <FilterItem
-        onClick={() => handleFilterToggle("Not Done")}
-        active={filter.includes("Not Done")}
-      >
-        Not Done
-      </FilterItem>
-      <FilterItem
-        onClick={() => handleFilterToggle("In Progress")}
-        active={filter.includes("In Progress")}
-      >
-        In Progress
-      </FilterItem>
-      <FilterItem
-        onClick={() => handleFilterToggle("Done")}
-        active={filter.includes("Done")}
-      >
-        Done
-      </FilterItem>
+      <Button type="primary" onClick={handleScrape}>
+        Scrape
+      </Button>
+      <Button type="primary" onClick={handleEnrich}>
+        Enrich
+      </Button>
     </FilterWrapper>
   );
 }
