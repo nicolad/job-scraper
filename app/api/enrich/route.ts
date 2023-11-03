@@ -9,10 +9,19 @@ export async function GET() {
   const jobs = await kv.lrange("jobs", 0, 1000);
 
   jobs?.forEach(async (item: any) => {
-    const enrichedData = await enrich(item?.url);
-    console.log("enrichedData: ", enrichedData);
-    // kv.hset("jobs", item?.url, enrichedData);
-    // await insertUniqueRecords(docs, "jobs", "url");
+    const url = item?.url;
+    const enrichedData = await enrich(url);
+
+    try {
+      kv.set("jobs", {
+        url,
+        ...enrichedData,
+      });
+    } catch (error) {
+      console.error(
+        `An error occurred while inserting records into jobs: ${error}`
+      );
+    }
   });
 
   return NextResponse.json(null);

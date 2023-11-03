@@ -3,7 +3,7 @@ import { ItemListWrapper } from "./styles";
 import { Jobs } from "./Jobs";
 
 export default async function ItemList() {
-  const data = await kv.lrange("jobs", 0, 1000);
+  const data = await kv.lrange("jobs2", 0, 1000);
   const jobs = data?.filter((d) => !d?.hide);
 
   return (
