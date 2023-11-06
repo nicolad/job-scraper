@@ -9,7 +9,6 @@ export async function GET() {
   const db = await JSONPreset<any>("db.json", []);
   let jobs = db?.data;
 
-  console.log("start");
   for (let index = 0; index < jobs.length; index++) {
     const item = jobs[index];
     const url = item?.url;
@@ -20,9 +19,6 @@ export async function GET() {
       console.log("error", error);
     }
   }
-  console.log("end");
-
-  console.log("jobs", jobs);
 
   db.write();
 

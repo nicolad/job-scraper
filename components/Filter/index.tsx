@@ -1,7 +1,7 @@
 "use client";
 
-import { Tag, Modal, Table, Button } from "antd";
-import { FilterWrapper, FilterItem } from "./styles";
+import { Button, Flex } from "antd";
+import Preferences from "./Preferences";
 
 export default function Filter() {
   const handleScrape = async () => {
@@ -25,13 +25,24 @@ export default function Filter() {
   };
 
   return (
-    <FilterWrapper>
-      <Button type="primary" onClick={handleScrape}>
-        Scrape
-      </Button>
-      <Button type="primary" onClick={handleEnrich}>
-        Enrich
-      </Button>
-    </FilterWrapper>
+    <Flex
+      gap={20}
+      justify="space-between"
+      style={{
+        margin: "20px",
+      }}
+    >
+      <Flex gap={20}>
+        <Button type="primary" onClick={handleScrape}>
+          Scrape
+        </Button>
+        <Button type="primary" onClick={handleEnrich}>
+          Enrich
+        </Button>
+      </Flex>
+      <Flex gap={20}>
+        <Preferences />
+      </Flex>
+    </Flex>
   );
 }

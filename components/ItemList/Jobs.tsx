@@ -39,7 +39,7 @@ export const Jobs = ({ jobs }: { jobs: any }) => {
   const columns = [
     {
       title: "Description",
-      dataIndex: "description",
+      dataIndex: "content",
       key: "description",
       render: (text: string) => (
         <span onClick={() => showModal(text)}>show</span>
