@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import { JSONPreset } from "lowdb/node";
 
-import { checkLatestJobs, insertUniqueRecords } from "@/utils";
+import { checkLatestJobs } from "@/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -19,19 +19,14 @@ export async function GET() {
 
   companies?.forEach(async (item: any) => {
     const companyURL = item?.jobListingURL ?? item?.website_url;
-    const url = new URL(companyURL);
-    const domainParts = url.hostname.split(".");
     const latestJobs = await checkLatestJobs(companyURL);
-
     latestJobs?.forEach(async (url: any) => {
-      db.data.push({
+      db?.data?.push({
         url,
       });
     });
 
     db.write();
-
-    // await insertUniqueRecords(docs, "jobs", "url");
   });
 
   return NextResponse.json(null);

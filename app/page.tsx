@@ -1,15 +1,19 @@
 "use client";
 import { Provider } from "jotai";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import ItemList from "@/components/ItemList";
-
 import Filter from "@/components/Filter";
 
 export default function Home() {
+  const queryClient = new QueryClient();
+
   return (
-    <Provider>
-      <Filter />
-      <ItemList />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider>
+        <Filter />
+        <ItemList />
+      </Provider>
+    </QueryClientProvider>
   );
 }
