@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { Button, Flex } from "antd";
 import Preferences from "./Preferences";
 import Messages from "./Messages";
@@ -9,8 +10,8 @@ export default function Filter() {
   const [threadID, setThreadID] = useState("");
   const handleScrape = async () => {
     try {
-      const response = await fetch("/api/scrape");
-      const data = await response.json();
+      const response = await axios("/api/scrape");
+      const data = await response?.data;
       console.log("Search API Response:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -19,8 +20,8 @@ export default function Filter() {
 
   const handleEnrich = async () => {
     try {
-      const response = await fetch("/api/enrich");
-      const data = await response.json();
+      const response = await axios("/api/enrich");
+      const data = await response?.data;
       console.log("Search API Response:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -29,8 +30,8 @@ export default function Filter() {
 
   const handleRetrieval = async () => {
     try {
-      const response = await fetch("/api/retrieval");
-      const data = await response.json();
+      const response = await axios("/api/retrieval");
+      const data = await response?.data;
       setThreadID(data.id);
     } catch (error) {
       console.error("Error fetching data:", error);

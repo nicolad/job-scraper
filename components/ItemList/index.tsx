@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import _ from "lodash";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
@@ -20,8 +21,8 @@ export default function ItemList() {
         ?.map((p) => p.toLowerCase());
 
       try {
-        const response = await fetch("api/jobs");
-        const data = await response.json();
+        const response = await axios("api/jobs");
+        const data = await response?.data;
         const filteredJobs = data
           ?.filter((d: any) => !d?.hide)
           ?.filter((d: any) => {
