@@ -1,4 +1,3 @@
-import { kv } from "@vercel/kv";
 import _ from "lodash";
 
 export const insertUniqueRecords = async (
@@ -13,7 +12,8 @@ export const insertUniqueRecords = async (
     console.log("insertUniqueRecords: ", data);
   }
   // Fetch existing records from the specified table
-  const existingRecords = await kv.lrange(tableName, 0, 1000);
+  // const existingRecords = await kv.lrange(tableName, 0, 1000);
+  const existingRecords = [{}];
 
   // Extract the values of the unique property from the existing records
   const existingUniqueValues = _.map(existingRecords, uniqueProperty);
@@ -32,7 +32,7 @@ export const insertUniqueRecords = async (
       console.log(`No new records to insert into ${tableName}`);
       return;
     }
-    await kv.lpush(tableName, ...uniqueRecords);
+    // await kv.lpush(tableName, ...uniqueRecords);
 
     // if (error) {
     //   console.log(`Error inserting records into ${tableName}:`, error);

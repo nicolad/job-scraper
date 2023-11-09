@@ -3,9 +3,9 @@ import _ from "lodash";
 
 export const getUniqueRecords = async (
   supabase?: any,
-  data: any[],
-  tableName: string,
-  uniqueProperty: string
+  data?: any[],
+  tableName?: string,
+  uniqueProperty?: string
 ): Promise<any> => {
   if (_.isEmpty(data)) {
     return;
@@ -22,7 +22,10 @@ export const getUniqueRecords = async (
   // Filter out the data that already exists in the table
   const uniqueRecords = data?.filter(
     (record: any) =>
-      !_.some(existingUniqueValues, (value) => value === record[uniqueProperty])
+      !_.some(
+        existingUniqueValues
+        // (value) => value === record?.[uniqueProperty]
+      )
   );
   console.log("Unique Records: ", uniqueRecords);
 

@@ -1,16 +1,8 @@
-import { kv } from "@vercel/kv";
 import { EditItemWrapper } from "./styles";
 import { revalidatePath } from "next/cache";
 
 async function createItem(formData: FormData) {
   "use server";
-
-  await kv.hset(formData.get("name")?.toString() || "", {
-    name: formData.get("name"),
-    status: formData.get("status"),
-    votes: formData.get("votes"),
-    url: formData.get("url"),
-  });
 
   revalidatePath("");
 }
