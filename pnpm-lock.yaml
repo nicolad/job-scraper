@@ -26,9 +26,6 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.5
     version: 18.2.5
-  '@vercel/kv':
-    specifier: ^0.2.1
-    version: 0.2.4
   antd:
     specifier: ^5.10.3
     version: 5.10.3(react-dom@18.2.0)(react@18.2.0)
@@ -49,7 +46,7 @@ dependencies:
     version: 2.5.1(@types/react@18.2.12)(react@18.2.0)
   langchain:
     specifier: ^0.0.178
-    version: 0.0.178(@vercel/kv@0.2.4)(axios@1.6.0)(cheerio@1.0.0-rc.12)(lodash@4.17.21)
+    version: 0.0.178(axios@1.6.0)(cheerio@1.0.0-rc.12)(lodash@4.17.21)
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -765,12 +762,6 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: false
 
-  /@upstash/redis@1.24.3:
-    resolution: {integrity: sha512-gw6d4IA1biB4eye5ESaXc0zOlVQI94aptsBvVcTghYWu1kRmOrJFoMFEDCa8p5uzluyYAOFCuY2GWLR6O4ZoIw==}
-    dependencies:
-      crypto-js: 4.2.0
-    dev: false
-
   /@vercel/build-utils@6.8.3:
     resolution: {integrity: sha512-C86OPuPAvG/pSr27DPKecmptkYYsgyhOKdHTLv9jI3Pv1yvru78k+JjrAyn7N+0ev75KNV0Prv4P3p76168ePw==}
     dev: false
@@ -808,13 +799,6 @@ packages:
 
   /@vercel/hydrogen@0.0.64:
     resolution: {integrity: sha512-1rzFB664G6Yzp7j4ezW9hvVjqnaU2BhyUdhchbsxtRuxkMpGgPBZKhjzRQHFvlmkz37XLC658T5Nb1P91b4sBw==}
-    dev: false
-
-  /@vercel/kv@0.2.4:
-    resolution: {integrity: sha512-wbIOOXhg6MzmNMzKFSWbbLAS65hCZcJN33z1coENzI1M0fOX55yE9v9LwVGqkzdItp3eZsv6pYvwcmGtllyLTw==}
-    engines: {node: '>=14.6'}
-    dependencies:
-      '@upstash/redis': 1.24.3
     dev: false
 
   /@vercel/next@3.9.4:
@@ -1468,10 +1452,6 @@ packages:
 
   /crypt@0.0.2:
     resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==}
-    dev: false
-
-  /crypto-js@4.2.0:
-    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     dev: false
 
   /css-select@5.1.0:
@@ -2985,7 +2965,7 @@ packages:
       json-buffer: 3.0.1
     dev: false
 
-  /langchain@0.0.178(@vercel/kv@0.2.4)(axios@1.6.0)(cheerio@1.0.0-rc.12)(lodash@4.17.21):
+  /langchain@0.0.178(axios@1.6.0)(cheerio@1.0.0-rc.12)(lodash@4.17.21):
     resolution: {integrity: sha512-M2nhrRLRA7LaI/rkIGu6dIbGCywBuGgmMsNq/97tyXsASPp6AgMPMNYTpyim/LC432JwQjEdf429AiGY+2eZow==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -3283,7 +3263,6 @@ packages:
         optional: true
     dependencies:
       '@anthropic-ai/sdk': 0.6.8
-      '@vercel/kv': 0.2.4
       ansi-styles: 5.2.0
       axios: 1.6.0
       binary-extensions: 2.2.0
