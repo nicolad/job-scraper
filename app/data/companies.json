@@ -234,5 +234,8 @@
   },
   {
     "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
+  },
+  {
+    "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote?countryCode=GB&pageSize=50&filters.workArrangementType=REMOTE&currencyCode=GBP&language=en&includeUnspecifiedSalary=true&"
   }
 ]

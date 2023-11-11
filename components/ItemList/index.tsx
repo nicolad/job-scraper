@@ -26,14 +26,14 @@ export default function ItemList() {
         const filteredJobs = data
           ?.filter((d: any) => !d?.hide)
           ?.filter((d: any) => {
-            if (preferences?.length > 1) return false;
+            if (preferences.length === 1) {
+              return true;
+            }
             const contentWords = _.words(d?.content?.toLowerCase());
             return preferences.some((p) =>
               contentWords.includes(p.toLowerCase())
             );
           });
-
-        console.log("data", filteredJobs);
 
         setJobs(filteredJobs);
       } catch (error) {

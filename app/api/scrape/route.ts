@@ -21,6 +21,9 @@ export async function GET() {
     const companyURL = item?.jobListingURL ?? item?.website_url;
     const latestJobs = await checkLatestJobs(companyURL);
     latestJobs?.forEach(async (url: any) => {
+      console.log("url: ", db?.data);
+      if (db?.data?.find((item: any) => item?.url === url)) return;
+
       db?.data?.push({
         url,
       });

@@ -52,7 +52,7 @@ const Preferences = () => {
         <Input
           value={industryPreference}
           onChange={handleIndustryChange}
-          placeholder="Enter your industry"
+          placeholder="Enter your industry in comma separated values"
         />
       </Drawer>
     </>

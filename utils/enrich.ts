@@ -14,13 +14,15 @@ export const getJobSectionContent = (html: string, url: string): any => {
   }
 
   if (siteURL.hostname.includes("efinancialcareers")) {
-    return "";
     const jobTitle = $(".job-info-data");
     const jobTitleContent = jobTitle.text();
     const jobSection = $(".job-description");
     const jobContent = jobSection.text();
 
-    return jobTitleContent.trim() + jobContent.trim();
+    return {
+      content: jobContent.trim(),
+      title: jobTitleContent.trim(),
+    };
   }
 
   if (siteURL.hostname.includes("xpertise-recruitment")) {
