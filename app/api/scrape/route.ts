@@ -9,10 +9,8 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const db = await JSONPreset<any>("db.json", []);
 
-  const file = await fs.readFile(
-    process.cwd() + "/app/data/companies.json",
-    "utf8"
-  );
+  const file = await fs.readFile("./app/data/companies.json", "utf8");
+
   const companies = JSON.parse(file)?.filter((company: any) => {
     return Boolean(company?.jobListingURL);
   });
