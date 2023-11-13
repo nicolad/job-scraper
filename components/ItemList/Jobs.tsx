@@ -69,12 +69,8 @@ export const Jobs = ({ jobs }: { jobs: any }) => {
     {
       title: "Actions",
       key: "actions",
-      render: (text: string, record: { id: number }) => (
-        <Actions
-          //  getJobs={getJobs}
-          id={record.id}
-          tableName="jobs"
-        />
+      render: (text: string, record: { url: string }) => (
+        <Actions id={record?.url} tableName="jobs" />
       ),
     },
   ];

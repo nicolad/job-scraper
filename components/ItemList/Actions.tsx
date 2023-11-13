@@ -1,23 +1,20 @@
 import { Button, Space } from "antd";
+import { deleteEntity, hideEntity } from "../../app/actions";
 
 export const Actions = ({
-  tableName,
   getJobs,
   id,
 }: {
   tableName: string;
   getJobs?: () => void;
-  id: number;
+  id: string;
 }) => {
-  const deleteJob = async (id: number) => {
-    // await kv.del(id);
-    // getJobs?.();
+  const deleteJob = async (id: string) => {
+    await deleteEntity(id);
   };
 
-  const hideJob = async (id: number) => {
-    // await supabase.from(tableName).update({ hide: true }).eq("id", id);
-
-    getJobs?.();
+  const hideJob = async (id: string) => {
+    await hideEntity(id);
   };
 
   return (
