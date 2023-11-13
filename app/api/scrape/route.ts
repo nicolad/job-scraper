@@ -1,19 +1,14 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
 import { JSONPreset } from "lowdb/node";
 
 import { checkLatestJobs } from "@/utils";
+import { getCompanies } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   const db = await JSONPreset<any>("db.json", []);
-
-  const file = await fs.readFile("./app/data/companies.json", "utf8");
-
-  const companies = JSON.parse(file)?.filter((company: any) => {
-    return Boolean(company?.jobListingURL);
-  });
+  const companies = await getCompanies();
 
   companies?.forEach(async (item: any) => {
     const companyURL = item?.jobListingURL ?? item?.website_url;

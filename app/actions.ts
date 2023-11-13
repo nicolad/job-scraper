@@ -1,5 +1,19 @@
 "use server";
+import { promises as fs } from "fs";
 import { JSONPreset } from "lowdb/node";
+
+export async function getCompanies() {
+  const file = await fs.readFile(
+    process.cwd() + "/app/data/companies.json",
+    "utf8"
+  );
+
+  const companies = JSON.parse(file)?.filter((company: any) => {
+    return Boolean(company?.jobListingURL);
+  });
+
+  return companies;
+}
 
 export async function deleteEntity(id: string) {
   const db = await JSONPreset<any>("db.json", []);
