@@ -44,5 +44,10 @@ export default function ItemList() {
     fetchJobs();
   }, [industryPreference]);
 
-  return <Jobs jobs={jobs} />;
+  return (
+    <>
+      <div>Total unfiltered jobs: {jobs?.length}</div>
+      <Jobs jobs={jobs} />
+    </>
+  );
 }

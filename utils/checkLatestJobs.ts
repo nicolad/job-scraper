@@ -1,6 +1,7 @@
 import _ from "lodash";
 import { load } from "cheerio";
 import axios from "axios";
+import { isEfinancialCareersLink, isLafosseCareersLink } from "./sites";
 
 export const getAllLinks = (html: string, url?: string): string[] => {
   const $ = load(html, { scriptingEnabled: true });
@@ -18,16 +19,13 @@ export const getAllLinks = (html: string, url?: string): string[] => {
       }
 
       if (
-        href &&
-        href.startsWith("https://www.efinancialcareers.co.uk/jobs-")
+        href?.includes("xpertise-recruitment") &&
+        href.includes("jobs/view")
       ) {
         uniqueJobLinks.add(href);
       }
 
-      if (
-        href?.includes("xpertise-recruitment") &&
-        href.includes("jobs/view")
-      ) {
+      if (isEfinancialCareersLink(href) || isLafosseCareersLink(href)) {
         uniqueJobLinks.add(href);
       }
     }

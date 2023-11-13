@@ -20,6 +20,11 @@ export const getJobSectionContent = (html: string, url: string): any => {
     const jobContent = jobSection.text();
 
     return {
+      content: "",
+      title: "",
+    };
+
+    return {
       content: jobContent.trim(),
       title: jobTitleContent.trim(),
     };
@@ -28,6 +33,18 @@ export const getJobSectionContent = (html: string, url: string): any => {
   if (siteURL.hostname.includes("xpertise-recruitment")) {
     const jobSection = $(".job-page-flex");
     const jobTitle = $(".gen-title");
+    const jobTitleContent = jobTitle.text();
+    const jobContent = jobSection.text();
+
+    return {
+      content: jobContent.trim(),
+      title: jobTitleContent.trim(),
+    };
+  }
+
+  if (siteURL.hostname.includes("lafosse")) {
+    const jobSection = $(".main-content");
+    const jobTitle = $(".single_job_listing");
     const jobTitleContent = jobTitle.text();
     const jobContent = jobSection.text();
 
