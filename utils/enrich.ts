@@ -48,9 +48,8 @@ export const getJobSectionContent = async (html: string, url: string) => {
     const company = db?.data?.find((company: any) =>
       company.URL.includes("lafosse")
     );
-    console.log("lafosse", company);
-    const jobSection = $("");
-    const jobTitle = $(".");
+    const jobSection = $(company?.jobSection);
+    const jobTitle = $(company?.jobTitle);
 
     const jobTitleContent = jobTitle.text();
     const jobContent = jobSection.text();
