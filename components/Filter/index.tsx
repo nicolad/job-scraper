@@ -1,10 +1,21 @@
 "use client";
-
+import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
 import axios from "axios";
 import { Button, Flex } from "antd";
 import Preferences from "./Preferences";
+import { getCompanies } from "@/app/actions";
 
-export default function Filter() {
+export default async function Filter() {
+  useEffect(() => {
+    async function fetchCompanies() {
+      const companies = await getCompanies();
+      console.log("companies", companies);
+    }
+
+    fetchCompanies();
+  }, []);
+
   const handleScrape = async () => {
     try {
       const response = await axios("/api/scrape");
