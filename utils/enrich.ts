@@ -3,76 +3,31 @@ import { load } from "cheerio";
 import axios from "axios";
 import { JSONPreset } from "lowdb/node";
 
-export const getJobSectionContent = async (html: string, url: string) => {
-  const db = await JSONPreset<any>("companies.json", []);
+export const getJobSectionContent = (html: string, jobTitleSelector?: string, jobDescriptionSelector?: string): any => {
   const $ = load(html, { scriptingEnabled: true });
-  const siteURL = new URL(url);
-
-  if (siteURL.hostname.includes("gravitasgroup")) {
-    const jobSection = $("#job");
-    const jobContent = jobSection.text();
-
-    return jobContent.trim();
+  let jd = {};
+  if (jobTitleSelector !== undefined && jobTitleSelector !== null && jobTitleSelector !== "") {
+    const jobTitleEl = $(jobTitleSelector);
+    const jobTitleContent = jobTitleEl.text();
+    jd = { ...jd, title: jobTitleContent };
   }
-
-  if (siteURL.hostname.includes("efinancialcareers")) {
-    const jobTitle = $(".job-info-data");
-    const jobTitleContent = jobTitle.text();
-    const jobSection = $(".job-description");
-    const jobContent = jobSection.text();
-
-    return {
-      content: "",
-      title: "",
-    };
-
-    return {
-      content: jobContent.trim(),
-      title: jobTitleContent.trim(),
-    };
+  if (jobDescriptionSelector !== undefined && jobDescriptionSelector !== null && jobDescriptionSelector !== "") {
+    const jobDescEl = $(jobDescriptionSelector);
+    const jobDescription = jobDescEl.text();
+    jd = { ...jd, content: jobDescription };
   }
-
-  if (siteURL.hostname.includes("xpertise-recruitment")) {
-    const jobSection = $(".job-page-flex");
-    const jobTitle = $(".gen-title");
-    const jobTitleContent = jobTitle.text();
-    const jobContent = jobSection.text();
-
-    return {
-      content: jobContent.trim(),
-      title: jobTitleContent.trim(),
-    };
-  }
-
-  if (siteURL.hostname.includes("lafosse")) {
-    const company = db?.data?.find((company: any) =>
-      company.URL.includes("lafosse")
-    );
-    const jobSection = $(company?.jobSection);
-    const jobTitle = $(company?.jobTitle);
-
-    const jobTitleContent = jobTitle.text();
-    const jobContent = jobSection.text();
-
-    return {
-      content: jobContent.trim(),
-      title: jobTitleContent.trim(),
-    };
-  }
-
-  return "";
+  return jd;
 };
 
-const fetchDetailsFromRecord = async (url: any, selector?: string) => {
+const fetchDetailsFromRecord = async (url: string, jobTitleSelector?: string, jobDescriptionSelector?: string) => {
   return axios.get(url).then((response) => {
     const html = response.data;
-    const text = getJobSectionContent(html, url);
-    return text;
+    return getJobSectionContent(html, jobTitleSelector, jobDescriptionSelector);
   });
 };
 
-export const enrich = async (url: string): Promise<any> => {
-  const details = await fetchDetailsFromRecord(url);
+export const enrich = async (jd: any, company: any): Promise<any> => {
+  const details = await fetchDetailsFromRecord(jd?.url, company?.jobTitleSelector, company?.jobDescriptionSelector);
   if (!details) return null;
 
   return details;
