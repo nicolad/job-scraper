@@ -46,7 +46,6 @@ export default function ItemList() {
 
   return (
     <>
-      <div>Total unfiltered jobs: {jobs?.length}</div>
       <Jobs jobs={jobs} />
     </>
   );

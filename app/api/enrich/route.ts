@@ -12,12 +12,8 @@ export async function GET() {
   for (let index = 0; index < jobs.length; index++) {
     const item = jobs[index];
     const url = item?.url;
-    try {
-      const enrichedData = await enrich(url);
-      jobs[index] = { url: item?.url, ...enrichedData };
-    } catch (error) {
-      console.log("error", error);
-    }
+    const enrichedData = await enrich(url);
+    jobs[index] = { url: item?.url, ...enrichedData };
   }
 
   db.write();
