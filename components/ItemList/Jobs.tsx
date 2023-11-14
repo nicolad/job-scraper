@@ -57,6 +57,20 @@ export const Jobs = ({ jobs }: { jobs: any }) => {
       key: "title",
     },
     {
+      title: "Domain",
+      dataIndex: "url",
+      key: "domain",
+      render: (url: string) => {
+        let domain = "";
+        try {
+          domain = url ? new URL(url).hostname : "";
+        } catch (error) {
+          console.error("Invalid URL:", error);
+        }
+        return <>{domain}</>;
+      },
+    },
+    {
       title: "URL",
       dataIndex: "url",
       key: "url",
