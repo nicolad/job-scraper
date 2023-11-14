@@ -1,8 +1,10 @@
 import _ from "lodash";
 import { load } from "cheerio";
 import axios from "axios";
+import { JSONPreset } from "lowdb/node";
 
-export const getJobSectionContent = (html: string, url: string): any => {
+export const getJobSectionContent = async (html: string, url: string) => {
+  const db = await JSONPreset<any>("companies.json", []);
   const $ = load(html, { scriptingEnabled: true });
   const siteURL = new URL(url);
 
@@ -43,8 +45,12 @@ export const getJobSectionContent = (html: string, url: string): any => {
   }
 
   if (siteURL.hostname.includes("lafosse")) {
-    const jobSection = $(".main-content");
-    const jobTitle = $(".single_job_listing");
+    const company = db?.data?.find((company: any) =>
+      company.URL.includes("lafosse")
+    );
+    const jobSection = $(company?.jobSection);
+    const jobTitle = $(company?.jobTitle);
+
     const jobTitleContent = jobTitle.text();
     const jobContent = jobSection.text();
 

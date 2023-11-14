@@ -38,7 +38,9 @@
     "Name": "La Fosse Associates",
     "Focus": "Technology, Digital",
     "URL": "https://www.lafosse.com/",
-    "jobListingURL": "https://www.lafosse.com/jobs/contract-jobs"
+    "jobListingURL": "https://www.lafosse.com/jobs/contract-jobs",
+    "jobSection": ".main-content",
+    "jobTitle": ".single_job_listing"
   },
   {
     "Name": "Trust In Soda",
@@ -240,12 +242,5 @@
     "Name": "Templeton & Partners",
     "Focus": "IT, Tech",
     "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
-  },
-  {
-    "Name": "efinancialcareers",
-    "Focus": "General Jobs",
-    "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote?countryCode=GB&pageSize=100&filters.workArrangementType=REMOTE&currencyCode=GBP&language=en&includeUnspecifiedSalary=true&",
-    "URL": "https://www.efinancialcareers.co.uk/"
   }
-
 ]
