@@ -11,15 +11,12 @@ export async function GET() {
   const companies = await getCompanies();
 
   companies?.forEach(async (item: any) => {
-    const companyURL = item?.jobListingURL ?? item?.website_url;
-    const latestJobs = await checkLatestJobs(companyURL);
-    latestJobs?.forEach(async (url: any) => {
-      console.log("url: ", db?.data);
-      if (db?.data?.find((item: any) => item?.url === url)) return;
+    const latestJobs = await checkLatestJobs(item);
+    latestJobs?.forEach(async (je: any) => {
+      //console.log("url: ", db?.data);
+      if (db?.data?.find((item: any) => item?.url === je?.url)) return;
 
-      db?.data?.push({
-        url,
-      });
+      db?.data?.push(je);
     });
 
     db.write();
