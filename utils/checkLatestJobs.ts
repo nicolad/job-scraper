@@ -36,10 +36,10 @@ export const getAllLinks = (html: string, url?: string): string[] => {
 
 // create a function that will additionaly parse elements from the page to get the job link
 export const parseLinkElement = (elem: any, item: any): string => { 
-  if (item.jobListingURL.includes("gravitasgroup")) { // what is gravitasgroup?
-    // todo: parse the link from the element
-    // some sites have the link in the href attribute, some have it in onclick attribute
-    return elem.attr("href");
+  if (item.Name.includes("Randstad Technologies")) {
+    const suffix = elem.attr("href");
+    const url = item?.URL;
+    return url + suffix;
   } else {
     console.log("elem: ", elem.attr("href"));
     return elem.attr("href");
