@@ -36,7 +36,10 @@ export const getAllLinks = (html: string, url?: string): string[] => {
 
 // create a function that will additionaly parse elements from the page to get the job link
 export const parseLinkElement = (elem: any, item: any): string => {
-  if (item?.name.includes("Randstad Technologies")) {
+  if (
+    item?.name.includes("Randstad Technologies") ||
+    item?.name.includes("Trust In Soda")
+  ) {
     const suffix = elem.attr("href");
     const url = item?.URL;
     return url + suffix;
@@ -84,7 +87,7 @@ export const checkLatestJobs = async (item: any): Promise<any> => {
   const linksWithCompany = links?.map((link: any) => {
     return {
       url: link,
-      company: item?.Name,
+      company: item?.name,
     };
   });
   return linksWithCompany;

@@ -1,3 +1,4 @@
+import type { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 import { JSONPreset } from "lowdb/node";
 
@@ -6,20 +7,37 @@ import { getCompanies } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: NextApiRequest) {
   const db = await JSONPreset<any>("db.json", []);
   const companies = await getCompanies();
+  const url = new URL(req?.url ?? "", "http://localhost:3000");
+  const company = url.searchParams.get("company");
+
+  async function updateDatabaseWithLatestJobs(latestJobs: any[]) {
+    for (const jobEntry of latestJobs) {
+      // Check if the job entry already exists in the database
+      const exists = db.data.find((item: any) => item.url === jobEntry.url);
+      if (!exists) {
+        db.data.push(jobEntry);
+      }
+    }
+    // Save changes to the database
+    await db.write();
+  }
+
+  if (company) {
+    const companyData = companies?.find((item: any) =>
+      item?.name.includes(company)
+    );
+    const latestJobs = await checkLatestJobs(companyData);
+    updateDatabaseWithLatestJobs(latestJobs);
+
+    return NextResponse.json(null);
+  }
 
   companies?.forEach(async (item: any) => {
     const latestJobs = await checkLatestJobs(item);
-    latestJobs?.forEach(async (je: any) => {
-      //console.log("url: ", db?.data);
-      if (db?.data?.find((item: any) => item?.url === je?.url)) return;
-
-      db?.data?.push(je);
-    });
-
-    db.write();
+    updateDatabaseWithLatestJobs(latestJobs);
   });
 
   return NextResponse.json(null);

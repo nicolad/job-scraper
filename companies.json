@@ -49,8 +49,9 @@
   {
     "name": "Trust In Soda",
     "Focus": "Digital and Tech",
-    "URL": "https://www.trustinsoda.com/",
-    "jobListingURL": "https://www.trustinsoda.com/jobs/contract/remote"
+    "URL": "https://www.trustinsoda.com",
+    "jobListingURL": "https://www.trustinsoda.com/jobs/contract/remote",
+    "jobLinkSelector": ".job-title a"
   },
   {
     "name": "Salt",
