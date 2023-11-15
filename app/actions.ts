@@ -14,7 +14,7 @@ export async function getCompanies() {
 }
 
 export async function deleteEntity(id: string) {
-  const db = await JSONPreset<any>("db.json", []);
+  const db = await JSONPreset<any>("/tmp/db.json", []);
   console.log("db", id);
   db.data.forEach((item: any, index: number) => {
     if (item.url === id) {
@@ -26,7 +26,7 @@ export async function deleteEntity(id: string) {
 }
 
 export async function hideEntity(id: string) {
-  const db = await JSONPreset<any>("db.json", []);
+  const db = await JSONPreset<any>("/tmp/db.json", []);
   console.log("db", id);
   db.data.forEach((item: any, index: number) => {
     if (item.url === id) {

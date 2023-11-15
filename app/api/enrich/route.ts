@@ -6,7 +6,7 @@ import { enrich } from "@/utils";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const jobsDb = await JSONPreset<any>("db.json", []);
+  const jobsDb = await JSONPreset<any>("/tmp/db.json", []);
   const companiesDb = await JSONPreset<any>("companies.json", []);
   let jobs = jobsDb?.data;
 

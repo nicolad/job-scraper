@@ -6,7 +6,7 @@ import OpenAI from "openai";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const dbPath = join(process.cwd(), "db.json");
+  const dbPath = join(process.cwd(), "/tmp/db.json");
 
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
