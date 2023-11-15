@@ -5,9 +5,11 @@
   },
   {
     "Name": "Randstad Technologies",
-    "URL": "https://www.randstad.co.uk/",
+    "URL": "https://www.randstad.co.uk",
     "jobListingURL": "https://www.randstad.co.uk/jobs/contract/remote/",
-    "jobLinkSelector": "ul.cards__list li div.cards__header a"
+    "jobLinkSelector": "div#search-results ul.cards__list li div.cards__header a",
+    "jobTitleSelector": "h1.content-block__title",
+    "jobDescriptionSelector": "div#job-details"
   },
   {
     "Name": "Harvey Nash",
@@ -32,7 +34,9 @@
     "Name": "Xpertise Recruitment",
     "URL": "https://www.xpertise-recruitment.com/",
     "jobListingURL": "https://www.xpertise-recruitment.com/jobs",
-    "jobLinkSelector": "#search_results_box div.job-item a.ji-link"
+    "jobLinkSelector": "#search_results_box div.job-item a.ji-link",
+    "jobTitleSelector": "h3.gen-title",
+    "jobDescriptionSelector": "div.hc-job-info"
   },
   {
     "Name": "La Fosse Associates",
@@ -242,5 +246,11 @@
     "Name": "Templeton & Partners",
     "Focus": "IT, Tech",
     "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
+  },
+  {
+    "Name": "efinancialcareers",
+    "Focus": "General Jobs",
+    "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote?countryCode=GB&pageSize=100&filters.workArrangementType=REMOTE&currencyCode=GBP&language=en&includeUnspecifiedSalary=true&",
+    "URL": "https://www.efinancialcareers.co.uk/"
   }
 ]

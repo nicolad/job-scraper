@@ -6,17 +6,26 @@ import { enrich } from "@/utils";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const db = await JSONPreset<any>("db.json", []);
-  let jobs = db?.data;
+  const jobsDb = await JSONPreset<any>("db.json", []);
+  const companiesDb = await JSONPreset<any>("companies.json", []);
+  let jobs = jobsDb?.data;
 
   for (let index = 0; index < jobs.length; index++) {
     const item = jobs[index];
-    const url = item?.url;
-    const enrichedData = await enrich(url);
-    jobs[index] = { url: item?.url, ...enrichedData };
+    if (item.company === undefined || item.company === null || item.company === "") {
+      continue;
+    }
+
+    //if (db?.data?.find((item: any) => item?.url === je?.url)) return;
+    let company = companiesDb?.data?.find((company: any) => company?.Name === item.company);
+    if (company !== undefined && company !== null) {
+      const enrichedData = await enrich(item, company);
+      jobs[index] = { ...item, ...enrichedData };
+    }
+
   }
 
-  db.write();
+  jobsDb.write();
 
   return NextResponse.json(null);
 }
