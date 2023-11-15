@@ -1,16 +1,14 @@
 "use server";
+import { companies } from "@/companies";
 import { JSONPreset } from "lowdb/node";
 
 /**
  * Companies that have job listing URL added
  */
 export async function getCompanies() {
-  const db = await JSONPreset<any>("companies.json", []);
-
-  const companies = db?.data?.filter((company: any) => {
+  return companies?.filter((company: any) => {
     return Boolean(company?.jobListingURL);
   });
-  return companies;
 }
 
 export async function deleteEntity(id: string) {
