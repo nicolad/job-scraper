@@ -255,7 +255,10 @@
   {
     "Name": "efinancialcareers",
     "Focus": "General Jobs",
-    "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote?countryCode=GB&pageSize=100&filters.workArrangementType=REMOTE&currencyCode=GBP&language=en&includeUnspecifiedSalary=true&",
-    "URL": "https://www.efinancialcareers.co.uk/"
+    "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote/technology/in-united-kingdom?q=technology&countryCode=GB&radius=40&radiusUnit=km&pageSize=15&filters.workArrangementType=REMOTE&filters.sectors=INFORMATION_TECHNOLOGY%7CFINTECH&filters.locationPath=Europe%2FUnited+Kingdom&currencyCode=GBP&language=en&includeUnspecifiedSalary=true",
+    "URL": "https://www.efinancialcareers.co.uk/",
+    "jobLinkSelector": "div.component-card-job-search a.job-title",
+    "jobTitleSelector": "efc-job-header-description div.job-info-data h1",
+    "jobDescriptionSelector": "efc-job-description.job-description"
   }
 ]
