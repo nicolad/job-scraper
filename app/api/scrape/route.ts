@@ -1,5 +1,4 @@
-import type { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { JSONPreset } from "lowdb/node";
 
 import { checkLatestJobs } from "@/utils";
@@ -7,7 +6,7 @@ import { getCompanies } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request | NextRequest) {
   const db = await JSONPreset<any>("db.json", []);
   const companies = await getCompanies();
   const url = new URL(req?.url ?? "", "http://localhost:3000");
