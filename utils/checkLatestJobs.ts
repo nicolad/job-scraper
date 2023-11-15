@@ -35,8 +35,11 @@ export const getAllLinks = (html: string, url?: string): string[] => {
 };
 
 // create a function that will additionaly parse elements from the page to get the job link
-export const parseLinkElement = (elem: any, item: any): string => { 
-  if (item.Name.includes("Randstad Technologies")) {
+export const parseLinkElement = (elem: any, item: any): string => {
+  if (
+    item?.name.includes("Randstad Technologies") ||
+    item?.name.includes("Trust In Soda")
+  ) {
     const suffix = elem.attr("href");
     const url = item?.URL;
     return url + suffix;
@@ -44,7 +47,7 @@ export const parseLinkElement = (elem: any, item: any): string => {
     console.log("elem: ", elem.attr("href"));
     return elem.attr("href");
   }
-}
+};
 
 export const getJobLinks = (html: string, item: any): string[] => {
   const $ = load(html, { scriptingEnabled: true });
@@ -55,9 +58,12 @@ export const getJobLinks = (html: string, item: any): string[] => {
   return Array.from(uniqueJobLinks);
 };
 
-
 const fetchUrlsFromRecord = async (item: any) => {
-  if (item.jobLinkSelector === undefined || item.jobLinkSelector === null || item.jobLinkSelector === "") {
+  if (
+    item.jobLinkSelector === undefined ||
+    item.jobLinkSelector === null ||
+    item.jobLinkSelector === ""
+  ) {
     return null;
   }
   console.log("Scraping item: ", item);
@@ -81,7 +87,7 @@ export const checkLatestJobs = async (item: any): Promise<any> => {
   const linksWithCompany = links?.map((link: any) => {
     return {
       url: link,
-      company: item?.Name,
+      company: item?.name,
     };
   });
   return linksWithCompany;

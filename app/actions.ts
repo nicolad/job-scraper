@@ -1,6 +1,9 @@
 "use server";
 import { JSONPreset } from "lowdb/node";
 
+/**
+ * Companies that have job listing URL added
+ */
 export async function getCompanies() {
   const db = await JSONPreset<any>("companies.json", []);
 

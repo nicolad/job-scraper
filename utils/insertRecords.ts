@@ -11,13 +11,6 @@ export const insertRecords = async (data: any[], tableName: string) => {
     }
 
     // Insert the unique records into the specified table
-    // const { error } = await supabase.from(tableName).upsert(data);
-
-    // if (error) {
-    //   console.log(`Error inserting records into ${tableName}:`, error);
-    // } else {
-    //   console.log(`Inserted ${data.length} new records into ${tableName}`);
-    // }
   } catch (error) {
     console.error(
       `An error occurred while inserting records into ${tableName}: ${error}`

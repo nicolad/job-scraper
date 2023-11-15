@@ -1,10 +1,10 @@
 [
   {
-    "Name": "Computer Futures",
+    "name": "Computer Futures",
     "URL": "https://www.computerfutures.com/"
   },
   {
-    "Name": "Randstad Technologies",
+    "name": "Randstad Technologies",
     "URL": "https://www.randstad.co.uk",
     "jobListingURL": "https://www.randstad.co.uk/jobs/contract/remote/",
     "jobLinkSelector": "div#search-results ul.cards__list li div.cards__header a",
@@ -12,26 +12,26 @@
     "jobDescriptionSelector": "div#job-details"
   },
   {
-    "Name": "Harvey Nash",
+    "name": "Harvey Nash",
     "URL": "https://www.harveynash.com/uk/",
     "jobListingURL": "https://www.harveynash.co.uk/jobs?options=4"
   },
   {
-    "Name": "Spinks",
+    "name": "Spinks",
     "URL": "https://www.wearespinks.com/",
     "jobListingURL": "https://www.wearespinks.com/jobs/contract"
   },
   {
-    "Name": "Reed Technology",
+    "name": "Reed Technology",
     "URL": "https://www.reedglobal.com/"
   },
   {
-    "Name": "Modis",
+    "name": "Modis",
     "URL": "https://www.modis.com/en-gb/",
     "jobListingURL": "https://www.akkodis.com/en/careers/job-results-uk"
   },
   {
-    "Name": "Xpertise Recruitment",
+    "name": "Xpertise Recruitment",
     "URL": "https://www.xpertise-recruitment.com/",
     "jobListingURL": "https://www.xpertise-recruitment.com/jobs",
     "jobLinkSelector": "#search_results_box div.job-item a.ji-link",
@@ -39,7 +39,7 @@
     "jobDescriptionSelector": "div.hc-job-info"
   },
   {
-    "Name": "La Fosse Associates",
+    "name": "La Fosse Associates",
     "Focus": "Technology, Digital",
     "URL": "https://www.lafosse.com/",
     "jobListingURL": "https://www.lafosse.com/jobs/contract-jobs",
@@ -47,208 +47,209 @@
     "jobTitle": ".single_job_listing"
   },
   {
-    "Name": "Trust In Soda",
+    "name": "Trust In Soda",
     "Focus": "Digital and Tech",
-    "URL": "https://www.trustinsoda.com/",
-    "jobListingURL": "https://www.trustinsoda.com/jobs/contract/remote"
+    "URL": "https://www.trustinsoda.com",
+    "jobListingURL": "https://www.trustinsoda.com/jobs/contract/remote",
+    "jobLinkSelector": ".job-title a"
   },
   {
-    "Name": "Salt",
+    "name": "Salt",
     "Focus": "Creative, Tech",
     "URL": "https://www.welovesalt.com/uk/"
   },
   {
-    "Name": "Ascent People",
+    "name": "Ascent People",
     "Focus": "IT and Software",
     "URL": "https://www.ascentpeople.com/"
   },
   {
-    "Name": "Explore Group",
+    "name": "Explore Group",
     "Focus": "IT, Digital",
     "URL": "https://www.explore-group.com/"
   },
   {
-    "Name": "Burns Sheehan",
+    "name": "Burns Sheehan",
     "Focus": "Technology",
     "URL": "https://www.burnssheehan.co.uk/"
   },
   {
-    "Name": "Arrows Group",
+    "name": "Arrows Group",
     "Focus": "Tech and Digital",
     "URL": "https://www.arrowsgroup.com/"
   },
   {
-    "Name": "Empiric",
+    "name": "Empiric",
     "Focus": "Technology",
     "URL": "https://www.empiric.com/"
   },
   {
-    "Name": "Nigel Frank International",
+    "name": "Nigel Frank International",
     "Focus": "Microsoft Technologies",
     "URL": "https://www.nigelfrank.com/"
   },
   {
-    "Name": "Henderson Scott",
+    "name": "Henderson Scott",
     "Focus": "Technology",
     "URL": "https://www.hendersonscott.com/"
   },
   {
-    "Name": "Oliver Bernard",
+    "name": "Oliver Bernard",
     "Focus": "Tech and Digital",
     "URL": "https://www.oliverbernard.co.uk/"
   },
   {
-    "Name": "Avanti Recruitment",
+    "name": "Avanti Recruitment",
     "Focus": "IT and Tech",
     "URL": "https://www.avantirecruitment.com/"
   },
   {
-    "Name": "GCS Recruitment",
+    "name": "GCS Recruitment",
     "Focus": "IT, Engineering",
     "URL": "https://www.gcsrecruitment.com/"
   },
   {
-    "Name": "Client Server",
+    "name": "Client Server",
     "Focus": "Tech",
     "URL": "https://www.client-server.com/"
   },
   {
-    "Name": "Intelligent People",
+    "name": "Intelligent People",
     "Focus": "Digital and Tech",
     "URL": "https://www.intelligentpeople.co.uk/"
   },
   {
-    "Name": "Revoco",
+    "name": "Revoco",
     "Focus": "Tech",
     "URL": "https://www.revoco-talent.co.uk/"
   },
   {
-    "Name": "William Alexander",
+    "name": "William Alexander",
     "Focus": "IT and Business Transformation",
     "URL": "https://www.william-alexander.com/"
   },
   {
-    "Name": "iO Associates",
+    "name": "iO Associates",
     "Focus": "Tech, Engineering",
     "URL": "https://www.ioassociates.co.uk/"
   },
   {
-    "Name": "Signify Technology",
+    "name": "Signify Technology",
     "Focus": "Scala, Java",
     "URL": "https://www.signifytechnology.com/"
   },
   {
-    "Name": "Prism Digital",
+    "name": "Prism Digital",
     "Focus": "DevOps, Cloud",
     "URL": "https://www.prism-digital.com/"
   },
   {
-    "Name": "Energize Recruitment",
+    "name": "Energize Recruitment",
     "Focus": "IT, Digital",
     "URL": "https://www.energizerecruitment.com/"
   },
   {
-    "Name": "Etonwood",
+    "name": "Etonwood",
     "Focus": "Infrastructure, Cloud",
     "URL": "https://etonwood.com/"
   },
   {
-    "Name": "Durlston Partners",
+    "name": "Durlston Partners",
     "Focus": "Technology",
     "URL": "https://durlstonpartners.com/"
   },
   {
-    "Name": "Annapurna Recruitment",
+    "name": "Annapurna Recruitment",
     "Focus": "IT, Business Change",
     "URL": "https://www.annapurnarecruitment.com/"
   },
   {
-    "Name": "Gibbs Hybrid",
+    "name": "Gibbs Hybrid",
     "Focus": "IT, Business Services",
     "URL": "https://www.gibbshybrid.com/"
   },
   {
-    "Name": "Sentinel",
+    "name": "Sentinel",
     "Focus": "IT, Business Transformation",
     "URL": "https://www.sentinelit.com/"
   },
   {
-    "Name": "Tiro Partners",
+    "name": "Tiro Partners",
     "Focus": "Tech, Engineering",
     "URL": "https://www.tiropartners.com/"
   },
   {
-    "Name": "Mason Frank",
+    "name": "Mason Frank",
     "Focus": "Salesforce Recruitment",
     "URL": "https://www.masonfrank.com/"
   },
   {
-    "Name": "Vertex Solutions",
+    "name": "Vertex Solutions",
     "Focus": "Tech, Financial Services",
     "URL": "https://www.vertex-solutions.co.uk/"
   },
   {
-    "Name": "Understanding Recruitment",
+    "name": "Understanding Recruitment",
     "Focus": "Tech",
     "URL": "https://www.understandingrecruitment.co.uk/"
   },
   {
-    "Name": "Zebra People",
+    "name": "Zebra People",
     "Focus": "Digital",
     "URL": "https://zebrapeople.com/"
   },
   {
-    "Name": "SR2",
+    "name": "SR2",
     "Focus": "Tech",
     "URL": "https://www.sr2rec.co.uk/"
   },
   {
-    "Name": "DCV Technologies",
+    "name": "DCV Technologies",
     "Focus": "Tech, Engineering",
     "URL": "https://www.dcvtechnologies.co.uk/"
   },
   {
-    "Name": "Amicus Recruitment",
+    "name": "Amicus Recruitment",
     "Focus": "Software Development",
     "URL": "https://amicusjobs.co.uk/"
   },
   {
-    "Name": "Stott and May",
+    "name": "Stott and May",
     "Focus": "Tech",
     "URL": "https://www.stottandmay.com/"
   },
   {
-    "Name": "Oho Group",
+    "name": "Oho Group",
     "Focus": "Tech, Engineering",
     "URL": "https://www.oho.co.uk/"
   },
   {
-    "Name": "Adria Solutions",
+    "name": "Adria Solutions",
     "Focus": "Tech",
     "URL": "https://www.adriasolutions.co.uk/"
   },
   {
-    "Name": "Datascope Recruitment",
+    "name": "Datascope Recruitment",
     "Focus": "Gaming, Tech",
     "URL": "https://datascope.co.uk/"
   },
   {
-    "Name": "Edison Hill",
+    "name": "Edison Hill",
     "Focus": "Tech",
     "URL": "https://www.edison-hill.co.uk/"
   },
   {
-    "Name": "Codex Recruitment",
+    "name": "Codex Recruitment",
     "Focus": "Data, Tech",
     "URL": "https://www.codexrecruitment.com/"
   },
   {
-    "Name": "Templeton & Partners",
+    "name": "Templeton & Partners",
     "Focus": "IT, Tech",
     "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
   },
   {
-    "Name": "efinancialcareers",
+    "name": "efinancialcareers",
     "Focus": "General Jobs",
     "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote/technology/in-united-kingdom?q=technology&countryCode=GB&radius=40&radiusUnit=km&pageSize=15&filters.workArrangementType=REMOTE&filters.sectors=INFORMATION_TECHNOLOGY%7CFINTECH&filters.locationPath=Europe%2FUnited+Kingdom&currencyCode=GBP&language=en&includeUnspecifiedSalary=true",
     "URL": "https://www.efinancialcareers.co.uk/",

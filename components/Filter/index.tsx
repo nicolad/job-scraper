@@ -1,20 +1,10 @@
 "use client";
-
 import axios from "axios";
 import { Button, Flex } from "antd";
 import Preferences from "./Preferences";
+import Scrape from "./Scrape";
 
-export default function Filter() {
-  const handleScrape = async () => {
-    try {
-      const response = await axios("/api/scrape");
-      const data = await response?.data;
-      console.log("Search API Response:", data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
+export default async function Filter() {
   const handleEnrich = async () => {
     try {
       const response = await axios("/api/enrich");
@@ -34,9 +24,7 @@ export default function Filter() {
       }}
     >
       <Flex gap={20}>
-        <Button type="primary" onClick={handleScrape}>
-          Scrape
-        </Button>
+        <Scrape />
         <Button type="primary" onClick={handleEnrich}>
           Enrich
         </Button>
