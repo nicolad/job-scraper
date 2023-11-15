@@ -4,13 +4,8 @@
     "URL": "https://www.computerfutures.com/"
   },
   {
-<<<<<<< HEAD
     "name": "Randstad Technologies",
-    "URL": "https://www.randstad.co.uk/",
-=======
-    "Name": "Randstad Technologies",
     "URL": "https://www.randstad.co.uk",
->>>>>>> main
     "jobListingURL": "https://www.randstad.co.uk/jobs/contract/remote/",
     "jobLinkSelector": "div#search-results ul.cards__list li div.cards__header a",
     "jobTitleSelector": "h1.content-block__title",
@@ -253,7 +248,7 @@
     "jobListingURL": "https://jobs.templeton-recruitment.com/job-search"
   },
   {
-    "Name": "efinancialcareers",
+    "name": "efinancialcareers",
     "Focus": "General Jobs",
     "jobListingURL": "https://www.efinancialcareers.co.uk/jobs/remote/technology/in-united-kingdom?q=technology&countryCode=GB&radius=40&radiusUnit=km&pageSize=15&filters.workArrangementType=REMOTE&filters.sectors=INFORMATION_TECHNOLOGY%7CFINTECH&filters.locationPath=Europe%2FUnited+Kingdom&currencyCode=GBP&language=en&includeUnspecifiedSalary=true",
     "URL": "https://www.efinancialcareers.co.uk/",

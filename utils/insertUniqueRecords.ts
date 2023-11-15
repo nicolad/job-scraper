@@ -11,8 +11,6 @@ export const insertUniqueRecords = async (
   if (process.env.NEXT_VERBOSITY === "debug") {
     console.log("insertUniqueRecords: ", data);
   }
-  // Fetch existing records from the specified table
-  // const existingRecords = await kv.lrange(tableName, 0, 1000);
   const existingRecords = [{}];
 
   // Extract the values of the unique property from the existing records
@@ -32,15 +30,6 @@ export const insertUniqueRecords = async (
       console.log(`No new records to insert into ${tableName}`);
       return;
     }
-    // await kv.lpush(tableName, ...uniqueRecords);
-
-    // if (error) {
-    //   console.log(`Error inserting records into ${tableName}:`, error);
-    // } else {
-    //   console.log(
-    //     `Inserted ${uniqueRecords.length} new records into ${tableName}`
-    //   );
-    // }
   } catch (error) {
     console.error(
       `An error occurred while inserting records into ${tableName}: ${error}`
