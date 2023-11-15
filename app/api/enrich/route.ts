@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { JSONPreset } from "lowdb/node";
+import { companies } from "@/companies";
 
 import { enrich } from "@/utils";
 
@@ -7,7 +8,6 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   const jobsDb = await JSONPreset<any>("/tmp/db.json", []);
-  const companiesDb = await JSONPreset<any>("companies.json", []);
   let jobs = jobsDb?.data;
 
   for (let index = 0; index < jobs.length; index++) {
@@ -20,8 +20,7 @@ export async function GET() {
       continue;
     }
 
-    //if (db?.data?.find((item: any) => item?.url === je?.url)) return;
-    let company = companiesDb?.data?.find(
+    let company = companies?.find(
       (company: any) => company?.name === item.company
     );
     if (company !== undefined && company !== null) {
