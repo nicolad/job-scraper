@@ -46,7 +46,7 @@ export default function ItemList() {
 
   return (
     <>
-      <Jobs jobs={jobs} />
+      <Jobs jobs={jobs.reverse()} />
     </>
   );
 }
