@@ -1,8 +1,9 @@
-interface Company {
+export interface Company {
   name: string;
   URL: string;
   Focus?: string;
   jobListingURL?: string;
+  jobStartsWith?: string;
   jobLinkSelector?: string;
   jobTitleSelector?: string;
   jobDescriptionSelector?: string;
@@ -64,11 +65,16 @@ export const companies: Company[] = [
     URL: "https://www.trustinsoda.com",
     jobListingURL: "https://www.trustinsoda.com/jobs/contract/remote",
     jobLinkSelector: ".job-title a",
+    jobDescriptionSelector: ".job-description",
   },
   {
     name: "Salt",
     Focus: "Creative, Tech",
     URL: "https://www.welovesalt.com/uk/",
+    jobListingURL: "https://welovesalt.com/jobs/job-type/contract",
+    jobLinkSelector: ".job__title a",
+    jobStartsWith: "https://welovesalt.com/jobs/technology",
+    jobDescriptionSelector: ".richtext",
   },
   {
     name: "Ascent People",

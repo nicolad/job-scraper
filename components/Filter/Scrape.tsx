@@ -12,7 +12,6 @@ export default function Filter() {
     },
   ]);
   const [selectedCompany, setSelectedCompany] = useState("");
-  console.log("companies", companies);
 
   useEffect(() => {
     async function fetchCompanies() {

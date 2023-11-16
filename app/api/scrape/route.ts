@@ -14,13 +14,11 @@ export async function GET(req: Request | NextRequest) {
 
   async function updateDatabaseWithLatestJobs(latestJobs: any[]) {
     for (const jobEntry of latestJobs) {
-      // Check if the job entry already exists in the database
       const exists = db.data.find((item: any) => item.url === jobEntry.url);
       if (!exists) {
         db.data.push(jobEntry);
       }
     }
-    // Save changes to the database
     await db.write();
   }
 

@@ -1,41 +1,12 @@
 import _ from "lodash";
 import { load } from "cheerio";
 import axios from "axios";
-import { isEfinancialCareersLink, isLafosseCareersLink } from "./sites";
-
-export const getAllLinks = (html: string, url?: string): string[] => {
-  const $ = load(html, { scriptingEnabled: true });
-  const uniqueJobLinks = new Set<string>();
-
-  $("a").each((_i, elem) => {
-    const href = $(elem).attr("href");
-    if (href) {
-      if (url?.includes("gravitasgroup") && href.startsWith("/job/")) {
-        const mainLink = href.split("/")[1] + "/" + href.split("/")[2];
-
-        const siteURL = new URL(url);
-
-        uniqueJobLinks.add(siteURL.origin + "/" + mainLink);
-      }
-
-      if (
-        href?.includes("xpertise-recruitment") &&
-        href.includes("jobs/view")
-      ) {
-        uniqueJobLinks.add(href);
-      }
-
-      if (isEfinancialCareersLink(href) || isLafosseCareersLink(href)) {
-        uniqueJobLinks.add(href);
-      }
-    }
-  });
-
-  return Array.from(uniqueJobLinks);
-};
+import { Company } from "@/companies";
 
 // create a function that will additionaly parse elements from the page to get the job link
-export const parseLinkElement = (elem: any, item: any): string => {
+export const parseLinkElement = (elem: any, item: Company): string => {
+  if (item?.URL.includes("welovesalt.com")) return elem.attr("href");
+
   if (
     item?.name.includes("Randstad Technologies") ||
     item?.name.includes("Trust In Soda")
