@@ -2,6 +2,7 @@ export interface Company {
   name: string;
   URL: string;
   Focus?: string;
+  linkedinJobsURL?: string;
   jobListingURL?: string;
   jobStartsWith?: string;
   jobLinkSelector?: string;
@@ -77,14 +78,11 @@ export const companies: Company[] = [
     jobDescriptionSelector: ".richtext",
   },
   {
-    name: "Ascent People",
-    Focus: "IT and Software",
-    URL: "https://www.ascentpeople.com/",
-  },
-  {
     name: "Explore Group",
     Focus: "IT, Digital",
     URL: "https://www.explore-group.com/",
+    linkedinJobsURL:
+      "https://www.linkedin.com/jobs/search/?currentJobId=3760191183&f_C=578309&f_WT=2&geoId=92000000&origin=JOB_SEARCH_PAGE_JOB_FILTER",
   },
   {
     name: "Burns Sheehan",

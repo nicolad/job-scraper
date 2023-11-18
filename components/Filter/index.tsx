@@ -15,6 +15,26 @@ export default async function Filter() {
     }
   };
 
+  const handleLinkedin = async () => {
+    try {
+      const response = await axios("/api/linkedin");
+      const data = await response?.data;
+      console.log("Search API Response:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleLinkedinEnrich = async () => {
+    try {
+      const response = await axios("/api/linkedin-enrich");
+      const data = await response?.data;
+      console.log("Search API Response:", data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <Flex
       gap={20}
@@ -27,6 +47,12 @@ export default async function Filter() {
         <Scrape />
         <Button type="primary" onClick={handleEnrich}>
           Enrich
+        </Button>
+        <Button type="primary" onClick={handleLinkedin}>
+          LinkedIn
+        </Button>
+        <Button type="primary" onClick={handleLinkedinEnrich}>
+          LinkedIn enrich
         </Button>
       </Flex>
       <Flex gap={20}>
