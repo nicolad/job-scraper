@@ -15,7 +15,6 @@ export const parseLinkElement = (elem: any, item: Company): string => {
     const url = item?.URL;
     return url + suffix;
   } else {
-    console.log("elem: ", elem.attr("href"));
     return elem.attr("href");
   }
 };

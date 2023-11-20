@@ -7,19 +7,19 @@ import { getCompanies } from "@/app/actions";
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request | NextRequest) {
-  const db = await JSONPreset<any>("/tmp/db.json", []);
+  const jobs = await JSONPreset<any>("jobs.json", []);
   const companies = await getCompanies();
   const url = new URL(req?.url ?? "", "http://localhost:3000");
   const company = url.searchParams.get("company");
 
   async function updateDatabaseWithLatestJobs(latestJobs: any[]) {
     for (const jobEntry of latestJobs) {
-      const exists = db.data.find((item: any) => item.url === jobEntry.url);
+      const exists = jobs.data.find((item: any) => item.url === jobEntry.url);
       if (!exists) {
-        db.data.push(jobEntry);
+        jobs.data.push(jobEntry);
       }
     }
-    await db.write();
+    await jobs.write();
   }
 
   if (company) {
