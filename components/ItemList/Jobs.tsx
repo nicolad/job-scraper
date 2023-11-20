@@ -1,6 +1,6 @@
 "use client";
 
-import { Tag, Modal, Table, Space } from "antd";
+import { Tag, Modal, Table, Space, Button } from "antd";
 
 import Actions from "./Actions";
 import { useState } from "react";
@@ -39,10 +39,12 @@ export const Jobs = ({ jobs }: { jobs: any }) => {
   const columns = [
     {
       title: "Description",
-      dataIndex: "content",
+      dataIndex: "description",
       key: "description",
       render: (text: string) => (
-        <span onClick={() => showModal(text)}>show</span>
+        <Button size="small" onClick={() => showModal(text)}>
+          show
+        </Button>
       ),
     },
     {

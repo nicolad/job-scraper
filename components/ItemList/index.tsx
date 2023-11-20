@@ -4,6 +4,7 @@ import axios from "axios";
 import _ from "lodash";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
+import { Job } from "@/types";
 
 const industryPreferenceAtom = atomWithStorage("industryPreference", "");
 
@@ -11,7 +12,7 @@ import { Jobs } from "./Jobs";
 
 export default function ItemList() {
   const [industryPreference] = useAtom(industryPreferenceAtom);
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
 
   useEffect(() => {
     async function fetchJobs() {
@@ -22,16 +23,16 @@ export default function ItemList() {
 
       try {
         const response = await axios("api/jobs");
-        const data = await response?.data;
+        const data: Job[] = await response?.data;
+
         const filteredJobs = data
           ?.filter((d: any) => !d?.hide)
           ?.filter((d: any) => {
             if (preferences.length === 1) {
               return true;
             }
-            const contentWords = _.words(d?.content?.toLowerCase());
             return preferences.some((p) =>
-              contentWords.includes(p.toLowerCase())
+              d?.description?.toLowerCase()?.includes(p)
             );
           });
 
