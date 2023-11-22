@@ -10,28 +10,38 @@ export async function GET(req: Request | NextRequest) {
   let jobs = jobsDb?.data;
 
   for (let index = 0; index < jobs.length; index++) {
-    const { data } = await axios.get(jobs[index].url);
-    const $ = load(data);
+    const currentJob = jobs[index];
 
-    const jobTitleSelector = ".topcard__title";
-    const jobTitleSelector2 = ".top-card-layout__title";
+    if (currentJob?.description || !currentJob.url) {
+      continue; // Skip to the next iteration of the loop
+    }
 
-    const descriptionSelector = ".description__text--rich";
+    try {
+      console.log("Enriching job:", currentJob.url);
+      const { data } = await axios.get(currentJob.url);
+      const $ = load(data);
 
-    const jobTitle = $(jobTitleSelector).text().trim();
-    const jobTitle2 = $(jobTitleSelector2).text().trim();
-    const jobDescription = $(descriptionSelector).text().trim();
+      const jobTitleSelector = ".topcard__title";
+      const jobTitleSelector2 = ".top-card-layout__title";
 
-    console.log(jobTitle, jobDescription);
+      const descriptionSelector = ".description__text--rich";
 
-    jobs[index] = {
-      ...jobs[index],
-      title: jobTitle || jobTitle2,
-      description: jobDescription,
-    };
+      const jobTitle = $(jobTitleSelector).text().trim();
+      const jobTitle2 = $(jobTitleSelector2).text().trim();
+      const jobDescription = $(descriptionSelector).text().trim();
+
+      jobs[index] = {
+        ...jobs[index],
+        title: jobTitle || jobTitle2,
+        description: jobDescription,
+      };
+    } catch (error) {
+      console.error("Error during enrich task:", currentJob.url, error);
+      continue;
+    }
+
+    jobsDb.write();
   }
-
-  jobsDb.write();
 
   return NextResponse.json(null);
 }

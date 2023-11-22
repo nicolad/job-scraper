@@ -24,20 +24,20 @@ app.prepare().then(() => {
   const scrapeTask = async () => {
     console.log("Running scrape task");
     try {
-      const response = await axios.get(`http://localhost:${port}/api/scrape`);
-      console.log("Scrape task completed:", response.data);
+      await axios.get(`http://localhost:${port}/api/linkedin`);
+      console.log("Scrape task completed");
     } catch (error) {
       console.error("Error during scrape task:", error);
     }
   };
 
   const enrichTask = async () => {
-    console.log("Running scrape task");
+    console.log("Running enrich task");
     try {
-      const response = await axios.get(`http://localhost:${port}/api/enrich`);
-      console.log("Scrape task completed:", response.data);
+      await axios.get(`http://localhost:${port}/api/linkedin-enrich`);
+      console.log("Enrich task completed");
     } catch (error) {
-      console.error("Error during scrape task:", error);
+      console.error("Error during enrich task:", error);
     }
   };
 
