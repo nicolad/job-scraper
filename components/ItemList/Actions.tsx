@@ -9,20 +9,12 @@ export const Actions = ({
   getJobs?: () => void;
   id: string;
 }) => {
-  const deleteJob = async (id: string) => {
-    await deleteEntity(id);
-  };
-
-  const hideJob = async (id: string) => {
-    await hideEntity(id);
-  };
-
   return (
     <Space>
-      <Button type="primary" danger onClick={() => deleteJob(id)}>
+      <Button type="primary" danger onClick={() => deleteEntity(id)}>
         Delete
       </Button>
-      <Button type="primary" onClick={() => hideJob(id)}>
+      <Button type="primary" onClick={() => hideEntity(id)}>
         Hide
       </Button>
     </Space>

@@ -13,6 +13,9 @@ export async function GET(req: Request | NextRequest) {
   const company = url.searchParams.get("company");
 
   async function updateDatabaseWithLatestJobs(latestJobs: any[]) {
+    if (!latestJobs?.length) {
+      return;
+    }
     for (const jobEntry of latestJobs) {
       const exists = jobs.data.find((item: any) => item.url === jobEntry.url);
       if (!exists) {

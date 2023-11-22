@@ -88,6 +88,8 @@ export const companies: Company[] = [
     name: "Burns Sheehan",
     Focus: "Technology",
     URL: "https://www.burnssheehan.co.uk/",
+    linkedinJobsURL:
+      "https://www.linkedin.com/jobs/search/?currentJobId=3757423056&f_C=103683&f_WT=2&geoId=92000000&origin=JOB_SEARCH_PAGE_JOB_FILTER",
   },
   {
     name: "Arrows Group",

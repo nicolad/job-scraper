@@ -20,12 +20,19 @@ export async function GET(req: Request | NextRequest) {
         anchors.map((anchor) => anchor.href)
       );
 
-      const filteredLinks = links?.filter((link) =>
-        link.includes("linkedin.com/jobs/view")
-      );
+      const filteredLinks = links
+        ?.filter((link) => link.includes("linkedin.com/jobs/view"))
+        .map((link) => link?.split("?")?.[0]);
 
       for (const jobEntry of filteredLinks) {
-        const exists = jobs.data.find((item: any) => item.url === jobEntry);
+        // Normalize the URL by removing query parameters
+        const normalizedURL = new URL(jobEntry);
+        normalizedURL.search = ""; // Remove query parameters
+        const jobBaseURL = normalizedURL.toString();
+        const exists = jobs.data.some((job: any) =>
+          job.url.startsWith(jobBaseURL)
+        );
+
         if (!exists) {
           jobs.data.push({
             url: jobEntry,
