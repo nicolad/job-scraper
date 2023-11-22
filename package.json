@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
     "@phntms/css-components": "^0.4.0",
@@ -37,7 +36,10 @@
     "vercel": "^31.0.3"
   },
   "devDependencies": {
+    "@types/node": "^18.11.5",
     "@playwright/test": "^1.40.0",
-    "@types/uuid": "^9.0.2"
+    "@types/uuid": "^9.0.2",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
   }
 }
