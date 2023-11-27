@@ -23,7 +23,7 @@ export const companies: Company[] = [
     jobListingURL: "https://www.randstad.co.uk/jobs/contract/remote/",
     jobLinkSelector: "div#search-results ul.cards__list li div.cards__header a",
     jobTitleSelector: "h1.content-block__title",
-    jobDescriptionSelector: "div#job-details",
+    jobDescriptionSelector: "div.job-details",
   },
   {
     name: "Harvey Nash",
@@ -66,7 +66,8 @@ export const companies: Company[] = [
     URL: "https://www.trustinsoda.com",
     jobListingURL: "https://www.trustinsoda.com/jobs/contract/remote",
     jobLinkSelector: ".job-title a",
-    jobDescriptionSelector: ".job-description",
+    jobTitleSelector: "h1.job-title",
+    jobDescriptionSelector: "div.main-content"
   },
   {
     name: "Salt",
@@ -74,8 +75,8 @@ export const companies: Company[] = [
     URL: "https://www.welovesalt.com/uk/",
     jobListingURL: "https://welovesalt.com/jobs/job-type/contract",
     jobLinkSelector: ".job__title a",
-    jobStartsWith: "https://welovesalt.com/jobs/technology",
-    jobDescriptionSelector: ".richtext",
+    jobTitleSelector: ".job-details h1.bigTitle",
+    jobDescriptionSelector: "div.details"
   },
   {
     name: "Explore Group",
