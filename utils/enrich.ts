@@ -14,16 +14,32 @@ export const getJobSectionContent = (html: string, jobTitleSelector?: string, jo
   if (jobDescriptionSelector !== undefined && jobDescriptionSelector !== null && jobDescriptionSelector !== "") {
     const jobDescEl = $(jobDescriptionSelector);
     const jobDescription = jobDescEl.text();
-    jd = { ...jd, content: jobDescription };
+    jd = { ...jd, description: jobDescription };
   }
   return jd;
 };
 
 const fetchDetailsFromRecord = async (url: string, jobTitleSelector?: string, jobDescriptionSelector?: string) => {
-  return axios.get(url).then((response) => {
-    const html = response.data;
-    return getJobSectionContent(html, jobTitleSelector, jobDescriptionSelector);
-  });
+  try {
+    return await axios.get(url).then((response) => {
+      const html = response.data;
+      return getJobSectionContent(html, jobTitleSelector, jobDescriptionSelector);
+    });
+  } catch (error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  }
 };
 
 export const enrich = async (jd: any, company: any): Promise<any> => {

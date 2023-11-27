@@ -15,7 +15,10 @@ export async function GET() {
     if (
       item.company === undefined ||
       item.company === null ||
-      item.company === ""
+      item.company === "" ||
+      item.url.includes("linkedin.com") || // skip linkedin jobs
+      item.content !== undefined || // skip already enriched jobs
+      item.title !== undefined // skip already enriched jobs
     ) {
       continue;
     }

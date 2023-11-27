@@ -23,7 +23,7 @@ export const companies: Company[] = [
     jobListingURL: "https://www.randstad.co.uk/jobs/contract/remote/",
     jobLinkSelector: "div#search-results ul.cards__list li div.cards__header a",
     jobTitleSelector: "h1.content-block__title",
-    jobDescriptionSelector: "div#job-details",
+    jobDescriptionSelector: "div.job-details",
   },
   {
     name: "Harvey Nash",

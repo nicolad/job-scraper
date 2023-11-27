@@ -12,7 +12,8 @@ export async function GET(req: Request | NextRequest) {
   for (let index = 0; index < jobs.length; index++) {
     const currentJob = jobs[index];
 
-    if (currentJob?.description || !currentJob.url) {
+    if (currentJob?.description || currentJob.description.length === 0|| 
+      !currentJob.url || !currentJob.url.includes("linkedin.com")) { // skip if already enriched or not linkedin
       continue; // Skip to the next iteration of the loop
     }
 
