@@ -4,7 +4,7 @@ import { Button, Flex } from "antd";
 import Preferences from "./Preferences";
 import Scrape from "./Scrape";
 
-export default async function Filter() {
+export default async function Controls() {
   const handleEnrich = async () => {
     try {
       const response = await axios("/api/enrich");

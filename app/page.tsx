@@ -3,7 +3,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import ItemList from "@/components/ItemList";
-import Filter from "@/components/Filter";
+import Controls from "@/components/Controls";
 
 export default function Home() {
   const queryClient = new QueryClient();
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
       <FormProvider {...methods}>
-        <Filter />
+        <Controls />
         <ItemList />
       </FormProvider>
     </QueryClientProvider>
