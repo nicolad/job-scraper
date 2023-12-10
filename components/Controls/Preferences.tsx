@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
-import { Drawer, Button, Input } from "antd";
+import { Drawer, Button, Input, Checkbox } from "antd";
 
-const industryPreferenceAtom = atomWithStorage("industryPreference", "");
+export const industryPreferenceAtom = atomWithStorage("industryPreference", {industry: "", searchInContent: false});
 
 const Preferences = () => {
   const [visible, setVisible] = React.useState(false);
-  const [industryPreference, setIndustryPreference] = useAtom(
-    industryPreferenceAtom
-  );
+  const [industryPreference, setIndustryPreference] = useAtom(industryPreferenceAtom);
+  
+  const [currentIndustry, setCurrentIndustry] = React.useState(industryPreference.industry);
+  const [searchInContent, setSearchInContent] = React.useState(industryPreference.searchInContent);
+
+
+  useEffect(() => {
+    setCurrentIndustry(industryPreference.industry);
+    setSearchInContent(industryPreference.searchInContent);
+  } , [industryPreference]);
 
   const showDrawer = () => {
     setVisible(true);
@@ -20,10 +27,11 @@ const Preferences = () => {
   };
 
   const handleIndustryChange = (e: any) => {
-    setIndustryPreference(e.target.value);
+    setCurrentIndustry(e.target.value);
   };
 
   const handleSave = () => {
+    setIndustryPreference({searchInContent: searchInContent, industry: currentIndustry});
     onClose();
   };
 
@@ -50,9 +58,14 @@ const Preferences = () => {
       >
         <p>Industry:</p>
         <Input
-          value={industryPreference}
+          value={currentIndustry}
           onChange={handleIndustryChange}
           placeholder="Enter your industry in comma separated values"
+        />
+        <p>Search in content:</p>
+        <Checkbox
+          checked={searchInContent}
+          onChange={(e) => setSearchInContent(e.target.checked) } 
         />
       </Drawer>
     </>

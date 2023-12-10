@@ -100,7 +100,7 @@ export const Jobs = ({ jobs }: { jobs: any }) => {
       />
       <Modal
         title="Job Description"
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
         footer={null}
       >

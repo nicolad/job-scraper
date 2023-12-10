@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import _ from "lodash";
 import { useAtom } from "jotai";
-import { atomWithStorage } from "jotai/utils";
 import { Job } from "@/types";
 
-const industryPreferenceAtom = atomWithStorage("industryPreference", "");
-
+import { industryPreferenceAtom } from "@/components/Controls/Preferences";
 import { Jobs } from "./Jobs";
 
 export default function ItemList() {
@@ -16,11 +14,11 @@ export default function ItemList() {
 
   useEffect(() => {
     async function fetchJobs() {
-      const preferences = industryPreference
+      const preferences = industryPreference.industry
         .split(",")
         ?.map((p) => p.trim())
         ?.map((p) => p.toLowerCase());
-
+        console.log(`Fetching jobs with string ${preferences}, with ${industryPreference.searchInContent ? '': 'no '}search in content`);
       try {
         const response = await axios("api/jobs");
         const data: Job[] = await response?.data;
@@ -28,11 +26,11 @@ export default function ItemList() {
         const filteredJobs = data
           ?.filter((d: any) => !d?.hide)
           ?.filter((d: any) => {
-            if (preferences.length === 1) {
+            if (preferences.length === 0) {
               return true;
             }
             return preferences.some((p) =>
-              d?.description?.toLowerCase()?.includes(p)
+              d?.title?.toLowerCase()?.includes(p) || (industryPreference.searchInContent && d?.description?.toLowerCase()?.includes(p))
             );
           });
 
